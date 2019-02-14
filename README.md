@@ -1,5 +1,6 @@
 # logdiff
 Compare log files.
+
 `logdiff` ignores number characters, not to be fooled by volatile log messages (timestamp, id, ... etc), 
 
 ## Howto build
