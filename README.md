@@ -1,0 +1,2 @@
+# logdiff
+Compare log files.
