@@ -1,0 +1,3 @@
+add_test(
+  NAME logdiff_test
+  COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/run_tests.sh ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
