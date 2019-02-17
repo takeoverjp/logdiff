@@ -45,6 +45,7 @@ if [ ! -x ${LOGDIFF} ]; then
 fi
 
 test ok.log ng.log 0 1
+test ng.log ok.log 1 0
 
 
 echo ""
