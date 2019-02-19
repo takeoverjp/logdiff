@@ -21,6 +21,8 @@ using dtl::uniHunk;
 typedef enum {
   MODE_DEC_INSENSITIVE,
   MODE_HEX_INSENSITIVE,
+  MODE_DECS_INSENSITIVE,
+  MODE_HEXS_INSENSITIVE,
 } comp_mode_e;
 
 static comp_mode_e comp_mode = MODE_DEC_INSENSITIVE;
@@ -85,8 +87,10 @@ static void
 usage (void)
 {
   fprintf (stderr, "[USAGE] logdiff FILE1 FILE2\n");
-  fprintf (stderr, "  -d : Insensitive for decimal numbers (default).\n");
-  fprintf (stderr, "  -x : Insensitive for hex numbers.\n");
+  fprintf (stderr, "  -d : Insensitive for decimal number (default).\n");
+  fprintf (stderr, "  -x : Insensitive for hex number.\n");
+  fprintf (stderr, "  -D : Insensitive for continuous decimal numbers.\n");
+  fprintf (stderr, "  -X : Insensitive for continuous hex numbers.\n");
   exit (EXIT_FAILURE);
 }
 
@@ -95,7 +99,7 @@ main (int argc, char *argv[])
 {
   int c = -1;
 
-  while ((c = getopt (argc, argv, "hdx")) != -1)
+  while ((c = getopt (argc, argv, "hdxDX")) != -1)
     {
       switch (c)
         {
@@ -104,6 +108,12 @@ main (int argc, char *argv[])
           break;
         case 'x':
           comp_mode = MODE_HEX_INSENSITIVE;
+          break;
+        case 'D':
+          comp_mode = MODE_DECS_INSENSITIVE;
+          break;
+        case 'X':
+          comp_mode = MODE_HEXS_INSENSITIVE;
           break;
         case 'h':
         default:
@@ -130,6 +140,12 @@ main (int argc, char *argv[])
       break;
     case MODE_HEX_INSENSITIVE:
       logdiff<HexNumberInsensitive> (path1, path2);
+      break;
+    case MODE_DECS_INSENSITIVE:
+      logdiff<DecNumbersInsensitive> (path1, path2);
+      break;
+    case MODE_HEXS_INSENSITIVE:
+      logdiff<HexNumbersInsensitive> (path1, path2);
       break;
     }
 
