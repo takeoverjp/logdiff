@@ -4,5 +4,9 @@ include_directories(
   ../dtl)
 
 add_test(
-  NAME logdiff_test
+  NAME comparator
+  COMMAND test_comparator)
+
+add_test(
+  NAME logdiff
   COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/run_tests.sh ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})

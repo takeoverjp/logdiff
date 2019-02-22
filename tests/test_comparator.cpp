@@ -17,6 +17,6 @@ int
 main (void)
 {
   test ("123: abc", "456: abc", true);
-  test ("123: abc", "456: abc", false);
+  test ("123: abcd", "456: abc", false);
   return 0;
 }
