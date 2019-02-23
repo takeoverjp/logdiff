@@ -1,3 +1,5 @@
+add_subdirectory(googletest)
+
 add_executable(test_comparator test_comparator.cpp)
 include_directories(
   ../
