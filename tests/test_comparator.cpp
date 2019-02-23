@@ -3,20 +3,16 @@
 #include <assert.h>
 
 #include <dtl/dtl.hpp>
+#include <gtest/gtest.h>
 
 #include "comparator.h"
 
-static void
-test (const std::string& lhs, const std::string& rhs, const bool exp)
-{
+TEST (TestDecNumberInsensitive, OneNumbersSameString) {
   DecNumberInsensitive c;
-  assert (exp == c.impl(lhs, rhs));
+  ASSERT_TRUE(c.impl("123: abc", "456: abc"));
 }
 
-int
-main (void)
-{
-  test ("123: abc", "456: abc", true);
-  test ("123: abcd", "456: abc", false);
-  return 0;
+TEST (TestDecNumberInsensitive, OneNumbersDiffString) {
+  DecNumberInsensitive c;
+  ASSERT_FALSE(c.impl("123: abcd", "456: abc"));
 }
