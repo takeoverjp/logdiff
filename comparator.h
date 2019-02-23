@@ -80,7 +80,7 @@ public:
     while (i != std::string::npos && j != std::string::npos
            && i < lhs.length() && j < rhs.length())
       {
-        if (isdigit(lhs.at(i)) && isdigit(rhs.at(j)))
+        if (isxdigit(lhs.at(i)) && isxdigit(rhs.at(j)))
           {
             i = lhs.find_first_not_of(hex, i);
             j = rhs.find_first_not_of(hex, j);
