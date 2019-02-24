@@ -16,7 +16,13 @@ make
 
 ## Howto use
 
-
 ```shell-session
 logdiff FILE1 FILE2
+```
+
+## Howto test
+
+```shell-session
+cd build
+ctest
 ```
